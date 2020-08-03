@@ -1,4 +1,4 @@
-public class MainExtemded {
+public class MainExtended {
     public static void main(String[] args) {
         int quantityOfBike = 5 ;
         String favouriteBikeBrand = "Specialized";
