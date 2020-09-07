@@ -5,18 +5,18 @@ public class LeapYear {
         System.out.println(isLeap2(year));
     }
 
-    public static boolean isLeap(int year){
-        if(year%4 != 0){
+    public static boolean isLeap(int year) {
+        if (year % 4 != 0) {
             return false;
-        } else if(year%100 != 0){
+        } else if (year % 100 != 0) {
             return true;
-        } else if(year%400 == 0){
+        } else if (year % 400 == 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean isLeap2(int year){
-        return ((year%4 == 0 && year%100 != 0) || (year%400 == 0));
+    public static boolean isLeap2(int year) {
+        return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
     }
 }
