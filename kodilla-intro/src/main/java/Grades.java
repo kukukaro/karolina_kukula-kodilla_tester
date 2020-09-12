@@ -7,27 +7,30 @@ public class Grades {
         this.size = 0;
     }
 
-    public void Add(int value){
-        if (this.size == 10){
+    public void add(int value){
+        if (size == 10){
             return;
         }
-        this.grades[this.size] = value;
+        grades[size] = value;
         size++;
     }
 
     public int returnLastValue(){
-        return this.grades[this.size-1];
+        if(size == 0){
+            return 0;
+        }
+        return grades[size-1];
     }
 
     public double returnAverageOfValues(){
-        if (this.size == 0) return 0;
-        if (this.size == 1) return this.grades[this.size];
+        if (size == 0) return 0;
+        if (size == 1) return grades[size-1];
 
         double sumOfValue = 0;
-        for (int i = 0 ; i < this.size ; i++){
-            sumOfValue += this.grades[i];
+        for (int i = 0 ; i < size ; i++){
+            sumOfValue += grades[i];
         }
-        return sumOfValue/this.size;
+        return sumOfValue/size;
     }
 
 }
