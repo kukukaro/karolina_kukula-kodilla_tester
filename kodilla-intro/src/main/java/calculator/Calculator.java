@@ -1,3 +1,5 @@
+package calculator;
+
 public class Calculator {
     static final double PI = Math.PI;
     static int counter = 0;
