@@ -1,3 +1,5 @@
+package prework;
+
 public class MainExtended {
     public static void main(String[] args) {
         int quantityOfBike = 5 ;

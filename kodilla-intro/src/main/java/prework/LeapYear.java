@@ -1,3 +1,5 @@
+package prework;
+
 public class LeapYear {
     public static void main(String[] args) {
         int year = 350;
