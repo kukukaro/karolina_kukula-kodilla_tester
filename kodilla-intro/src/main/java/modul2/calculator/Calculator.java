@@ -1,4 +1,4 @@
-package calculator;
+package modul2.calculator;
 
 public class Calculator {
     static final double PI = Math.PI;

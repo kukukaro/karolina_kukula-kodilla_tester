@@ -1,3 +1,5 @@
+package modul2;
+
 public class Grades {
     private int [] grades;
     private int size;

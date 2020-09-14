@@ -1,3 +1,5 @@
+package modul2;
+
 public class Book {
     private String author;
     private String title;

@@ -1,3 +1,5 @@
+package modul2;
+
 public class Notebook2 {
 
     String weightInGrams ;

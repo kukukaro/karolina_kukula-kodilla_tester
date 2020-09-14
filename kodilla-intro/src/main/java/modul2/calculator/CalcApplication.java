@@ -1,4 +1,4 @@
-package calculator;
+package modul2.calculator;
 
 public class CalcApplication {
     public static void main(String[] args) {

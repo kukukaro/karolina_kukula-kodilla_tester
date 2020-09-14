@@ -1,3 +1,5 @@
+package modul2;
+
 public class User {
     String name;
     int age;

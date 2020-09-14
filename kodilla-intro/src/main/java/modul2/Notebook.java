@@ -1,3 +1,5 @@
+package modul2;
+
 public class Notebook {
     int weightInGrams;
     int price;

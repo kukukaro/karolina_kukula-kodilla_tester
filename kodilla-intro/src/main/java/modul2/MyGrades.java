@@ -1,3 +1,7 @@
+package modul2;
+
+import modul2.Grades;
+
 public class MyGrades {
     public static void main(String[] args) {
         Grades karolinaGrades = new Grades();
