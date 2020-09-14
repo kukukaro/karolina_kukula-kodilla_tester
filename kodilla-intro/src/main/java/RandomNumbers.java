@@ -9,7 +9,7 @@ public class RandomNumbers {
         int sum = 0 ;
         Random generator = new Random();
 
-        for (int i = 0 ; sum <= 5000 ; i++){
+        while (sum <= 500){
             int value =  generator.nextInt(31);
             min = Math.min(min, value);
             max = Math.max(max, value);
