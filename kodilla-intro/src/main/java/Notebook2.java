@@ -11,9 +11,9 @@ public class Notebook2 {
     }
 
     public void checkPrice() {
-        if (this.price < 600) {
+        if (price < 600) {
             System.out.println("This notebook is very cheap.");
-        } else if (this.price > 1000) {
+        } else if (price > 1000) {
             System.out.println("This notebook is very expensive.");
         } else {
             System.out.printf("The price is good.");
@@ -45,7 +45,7 @@ public class Notebook2 {
     } */
 
     public void printParameters(){
-        System.out.println("Weigh: " + this.weightInGrams + "\tPrice: " + this.price + "\tYear of production: " + this.year);
+        System.out.println("Weigh: " + weightInGrams + "\tPrice: " + price + "\tYear of production: " + year);
     }
 
     public static void main(String[] args) {
