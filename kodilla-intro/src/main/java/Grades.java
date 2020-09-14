@@ -24,7 +24,6 @@ public class Grades {
 
     public double returnAverageOfValues(){
         if (size == 0) return 0;
-        if (size == 1) return grades[size-1];
 
         double sumOfValue = 0;
         for (int i = 0 ; i < size ; i++){
