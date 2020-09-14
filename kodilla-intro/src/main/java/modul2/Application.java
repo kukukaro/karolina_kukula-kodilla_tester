@@ -19,9 +19,9 @@ public class Application {
 
     public void checkAgeAndHeight(){
         if (age > 30 && height > 160) {
-            System.out.println("modul2.User is older than 30 and higher then 160cm");
+            System.out.println("User is older than 30 and higher then 160cm");
         } else {
-            System.out.println("modul2.User is younger than 31 or lower than 161cm");
+            System.out.println("User is younger than 31 or lower than 161cm");
         }
 
     }
