@@ -7,7 +7,11 @@ public class User {
         this.age = age;
     }
 
-    public static void showNameAboveAverageAge(User[] users){
+    public static void showNameBelowAverageAge(User[] users){
+        if (users.length == 0) {
+            System.out.println("Your array is empty.");
+            return ;
+        }
         double averageAge = 0 ;
         for (int i = 0 ; i < users.length ; i++){
             averageAge += users[i].age ;
@@ -34,7 +38,10 @@ public class User {
             new User("Aurelia", 98),
         };
 
-    showNameAboveAverageAge(users);
+        User[] userEmpty = new User[0];
+
+    showNameBelowAverageAge(users);
+    showNameBelowAverageAge(userEmpty);
 
 
     }
