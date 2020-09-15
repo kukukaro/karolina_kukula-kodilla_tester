@@ -10,7 +10,7 @@ public class User {
     }
 
     public static void showNameBelowAverageAge(User[] users){
-        if (users.length == 0) {
+        if (users == null || users.length == 0) {
             System.out.println("Your array is empty.");
             return ;
         }
