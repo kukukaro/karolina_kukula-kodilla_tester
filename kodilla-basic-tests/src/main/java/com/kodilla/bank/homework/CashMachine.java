@@ -33,7 +33,7 @@ public class CashMachine {
         }
     }
 
-    public int getSum() {
+    public int getSaldo() {
         if (transactions.length == 0) {
             return 0;
         }

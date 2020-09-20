@@ -13,7 +13,7 @@ public class Bank {
     public int returnAtmsSum(){
         int sum = 0;
         for (CashMachine atm : atms) {
-            sum += atm.getSum();
+            sum += atm.getSaldo();
         }
         return sum;
     }
