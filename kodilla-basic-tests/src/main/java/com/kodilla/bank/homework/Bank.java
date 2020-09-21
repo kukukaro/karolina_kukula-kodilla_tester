@@ -4,10 +4,15 @@ public class Bank {
     private CashMachine[] atms;
 
     public Bank(int numberOfAtms){
+        if (numberOfAtms < 0) {
+            numberOfAtms = 0;
+            System.out.println("Negative number of ATMs is not allowed! Created bank with 0 ATM.");
+        }
         atms = new CashMachine[numberOfAtms];
-        for (int i = 0 ; i <numberOfAtms ; i++){
+        for (int i = 0; i < numberOfAtms; i++) {
             atms[i] = new CashMachine();
         }
+
     }
 
     public int returnAtmsSum(){
@@ -52,15 +57,31 @@ public class Bank {
 
     public double returnAverageOfWithdraws()
     {
+        if (returnNumberOfWithdraws() == 0){
+            System.out.println("No transaction.");
+            return  0;
+        }
         return returnSumOfWithdraws()/returnNumberOfWithdraws();
     }
 
     public double returnAverageOfDeposits()
     {
+        if (returnNumberOfDeposits() == 0){
+            System.out.println("No transaction.");
+            return  0;
+        }
         return returnSumOfDeposits()/returnNumberOfDeposits();
     }
 
     public CashMachine accessAtm(int i){
+        if (i < 0){
+            System.out.println("Wrong number of ATM. Please input correct value: 0 or more.");
+            return null;
+        }
         return atms[i];
+    }
+
+    public int getNumberOfAtms() {
+        return atms.length;
     }
 }
