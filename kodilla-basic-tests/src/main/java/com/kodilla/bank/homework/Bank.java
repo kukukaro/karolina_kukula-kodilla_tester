@@ -3,7 +3,7 @@ package com.kodilla.bank.homework;
 public class Bank {
     private CashMachine[] atms;
 
-    public Bank(int numberOfAtms){
+    public Bank(int numberOfAtms) {
         if (numberOfAtms < 0) {
             numberOfAtms = 0;
             System.out.println("Negative number of ATMs is not allowed! Created bank with 0 ATM.");
@@ -13,6 +13,10 @@ public class Bank {
             atms[i] = new CashMachine();
         }
 
+    }
+
+    Bank(CashMachine[] atms) {
+        this.atms =atms;
     }
 
     public int returnAtmsSum(){
@@ -39,7 +43,7 @@ public class Bank {
         return counter;
     }
 
-    private int returnSumOfDeposits() {
+    public int returnSumOfDeposits() {
         int sum = 0;
         for (CashMachine atm : atms) {
             sum += atm.getSumOfDeposits();
@@ -47,7 +51,7 @@ public class Bank {
         return sum;
     }
 
-    private int returnSumOfWithdraws() {
+    public int returnSumOfWithdraws() {
         int sum = 0;
         for (CashMachine atm : atms) {
             sum += atm.getSumOfWithdraws();
