@@ -9,6 +9,13 @@ public class CashMachine {
         this.transactions = new int[0];
     }
 
+    CashMachine(int[] transactions) {
+        this.transactions = transactions;
+        this.numberOfTransactions = transactions.length;
+    }
+
+
+
     private void newTransaction(int amount) {
         this.numberOfTransactions++;
         int[] newTab = new int[this.numberOfTransactions];

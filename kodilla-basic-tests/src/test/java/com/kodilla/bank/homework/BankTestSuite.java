@@ -1,6 +1,5 @@
-package com.kodilla.bank.homerwork;
+package com.kodilla.bank.homework;
 
-import com.kodilla.bank.homework.Bank;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
