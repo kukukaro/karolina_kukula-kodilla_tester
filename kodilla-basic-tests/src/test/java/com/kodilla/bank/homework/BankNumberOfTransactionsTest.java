@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BankNumberOfTransactions {
+public class BankNumberOfTransactionsTest {
     Bank bank = new Bank(new CashMachine[]{
             new CashMachine(new int[]{100, -200}),
             new CashMachine(new int[]{-500, 300, 600}),

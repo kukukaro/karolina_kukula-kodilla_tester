@@ -80,8 +80,10 @@ public class CashMachineTestSuite {
     }
 
     @Test
-    public void shouldReturnZeroNumberOfTransactionZeroValueTransaction() {
-        int numberOfTransactions = zeroValueTransaction.getNumberOfTransactions();
+    public void shouldReturnZeroNumberOfTransactionForZeroValueTransaction() {
+        transactions.newWithdraw(0);
+        transactions.newDeposit(0);
+        int numberOfTransactions = transactions.getNumberOfTransactions();
         assertEquals(0, numberOfTransactions);
     }
 

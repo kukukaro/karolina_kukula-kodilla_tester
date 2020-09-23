@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BankCreate {
+public class BankCreateTest {
     @Test
     public void shouldAllowBankWithNoAtms() {
         Bank bank1 = new Bank(0);
