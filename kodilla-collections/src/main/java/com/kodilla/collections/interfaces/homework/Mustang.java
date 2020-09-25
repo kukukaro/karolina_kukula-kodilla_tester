@@ -2,9 +2,21 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Mustang implements Car {
     int speed;
+    int acceleration;
 
-    public Mustang(int speed) {
+    public Mustang(int speed, int acceleration) {
         this.speed = speed;
+        this.acceleration = acceleration;
+    }
+
+    @Override
+    public int getAcceleration() {
+        return acceleration;
+    }
+
+    public Mustang(int acceleration) {
+        this.acceleration = acceleration;
+        speed = 80;
     }
 
     @Override
@@ -14,7 +26,7 @@ public class Mustang implements Car {
 
     @Override
     public void increaseSpeed() {
-        speed += 30;
+        speed += acceleration;
     }
 
     @Override
