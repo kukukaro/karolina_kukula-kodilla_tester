@@ -15,7 +15,6 @@ public class CarsListApplication {
         cars.add(new Tesla(9));
         cars.add(new Tesla(12));
         cars.add(new Tesla(16));
-        Car tesla = new Tesla(12);
         Jaguar jaguar = new Jaguar(25);
         cars.add(jaguar);
         cars.add(new Jaguar(25));
@@ -27,7 +26,19 @@ public class CarsListApplication {
         System.out.println(cars.size());
 
         cars.remove(0);
+
+        for (Car car : cars)
+            CarUtils.describeCar(car);
+        System.out.println(cars.size());
+
+        Car tesla = new Tesla(12);
         cars.remove(tesla);
+        cars.remove(jaguar);
+
+        for (Car car : cars)
+            CarUtils.describeCar(car);
+        System.out.println(cars.size());
+
         cars.remove(jaguar);
 
         for (Car car : cars)
