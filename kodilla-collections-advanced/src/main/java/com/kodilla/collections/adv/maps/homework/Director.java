@@ -3,8 +3,8 @@ package com.kodilla.collections.adv.maps.homework;
 import java.util.Objects;
 
 public class Director {
-    private String  firstName = "";
-    private String lastName= "";
+    private String firstName = "";
+    private String lastName = "";
 
     public Director(String firstName, String lastName) {
         this.firstName = firstName;
