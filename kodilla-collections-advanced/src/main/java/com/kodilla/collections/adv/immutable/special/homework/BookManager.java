@@ -1,20 +1,36 @@
 package com.kodilla.collections.adv.immutable.special.homework;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 
 public class BookManager {
 
-    private static Map<Book, Book> books = new HashMap<>();
+    private static List<Book> books = new LinkedList<>();
 
     public static Book createBook(String name, String author) {
-        Book book = new Book(name, author);
-        if (books.containsKey(book)){
-            return books.get(book);
+
+        for (Book book : books) {
+            if (book.getTitle().equals(name) && book.getAuthor().equals(author)) {
+                return book;
+            }
         }
-        books.put(book, book);
-        return  book;
+        Book book = new Book(name, author);
+        books.add(book);
+        return book;
+    }
+
+    public static void printLibrary() {
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "BookManager{}";
     }
 
 

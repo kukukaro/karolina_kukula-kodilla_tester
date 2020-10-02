@@ -9,5 +9,8 @@ public class BookApplication {
         System.out.println(book01==book02);
         System.out.println(book02==book03);
 
+        BookManager.printLibrary();
+
+        }
     }
-}
+
