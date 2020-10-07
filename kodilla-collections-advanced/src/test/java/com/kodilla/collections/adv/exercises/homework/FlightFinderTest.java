@@ -57,4 +57,24 @@ class FlightFinderTest {
         expectedList.add(new Flight("Warszawa", "Oslo"));
         assertEquals(expectedList, result);
     }
+
+    @Test
+    public void shouldReturnCorrectListForFlightsFromSearch1() {
+        List<Flight> expectedList = new ArrayList<>();
+        flightFinder.findFlightsFrom("Krakow");
+        List<Flight> result = flightFinder.findFlightsFrom("Krakow");
+        expectedList.add(new Flight("Krakow", "Amsterdam"));
+        expectedList.add(new Flight("Krakow", "Londyn"));
+        assertEquals(expectedList, result);
+    }
+
+    @Test
+    public void shouldReturnEmptyListForNoneExistingFlightFrom() {
+        assertEquals( true, flightFinder.findFlightsFrom("xxx").isEmpty());
+    }
+
+    @Test
+    public void shouldReturnEmptyListForNoneExistingFlightTo() {
+        assertEquals( true, flightFinder.findFlightsTo("xxx").isEmpty());
+    }
 }

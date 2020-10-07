@@ -23,7 +23,6 @@ public class FlightApplication {
 
         FlightFinder finder = new FlightFinder(flightRepository);
         finder.findFlightsFrom("Krakow");
-        finder.printFlightsFrom();
 
         }
 }

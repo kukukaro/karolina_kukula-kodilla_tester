@@ -8,13 +8,22 @@ public class FlightRepository {
     private Set<String> cities = new HashSet<>();
 
     public void addFlight(String departure, String arrival) {
-        for (Flight flight : flights) {
-            if (flight.getArrival().equals(arrival) && flight.getDeparture().equals(departure)) {
-                System.out.println("This flight is already added to flight repository.");
-                return;
+
+        if (isCorrectLocation(departure) && isCorrectLocation(arrival)) {
+
+            for (Flight flight : flights) {
+                if (flight.getArrival().equals(arrival) && flight.getDeparture().equals(departure)) {
+                    System.out.println("This flight is already added to flight repository.");
+                    return;
+                }
             }
+            flights.add(new Flight(departure, arrival));
         }
-        flights.add(new Flight(departure, arrival));
+
+    }
+
+    private boolean isCorrectLocation(String location) {
+        return location != null && !location.isEmpty();
     }
 
 
