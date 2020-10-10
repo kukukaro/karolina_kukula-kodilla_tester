@@ -9,7 +9,7 @@ public class ForumStats {
                 .filter(u->u.getAge()< 40)
                 .mapToInt(u->u.getNumberOfPosts())
                 .average()
-                .getAsDouble();
+                .orElse(0.0);
         System.out.println("Average number of post for user below 40 years old: " + averagePostUnderForty);
 
         double averagePostAboveForty = UserRepository.getUsersList()
@@ -17,7 +17,7 @@ public class ForumStats {
                 .filter(u->u.getAge() >= 40)
                 .mapToInt(u->u.getNumberOfPosts())
                 .average()
-                .getAsDouble();
+                .orElse(0.00);
         System.out.println("Average number of post for user equal and above 40 years old: " + averagePostAboveForty);
     }
 }
