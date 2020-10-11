@@ -2,18 +2,17 @@ package com.kodilla.exception.homework;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Warehouse {
+    private int numberInThisYear = 1;
+    private int year = 2020;
     private List<Order> orders = new ArrayList<>();
+
     public void addOrder(Order order) {
         orders.add(order);
     }
 
-    public Order getOrder() throws OrderDoesntExistException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please type number of searching order: ");
-        String number = scanner.nextLine();
+    public Order getOrder(String number) throws OrderDoesntExistException {
 
         Order result = orders
                 .stream()
@@ -22,4 +21,13 @@ public class Warehouse {
 
         return result;
     }
+
+    public int getNextNumberInThisYear() {
+        return numberInThisYear++;
+    }
+
+    public int getYear() {
+        return year;
+    }
 }
+
