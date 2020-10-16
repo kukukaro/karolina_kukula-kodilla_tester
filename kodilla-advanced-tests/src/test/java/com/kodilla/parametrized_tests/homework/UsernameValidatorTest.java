@@ -22,7 +22,7 @@ class UsernameValidatorTest {
         assertFalse(usernameValidator.validateUsername(text));
     }
     @ParameterizedTest
-    @ValueSource(strings ={ "%Ka", "!kolina", "\"@@@"})
+    @ValueSource(strings ={ "%Ka", "!kolina", "GGG\"", "`Baron", "JpK@", "#007", "G^P", "C&I", "L*o", "+Kp" })
     public void shouldReturnFalseIfStringIsContainInvalidChar(String text) {
         assertFalse(usernameValidator.validateUsername(text));
     }

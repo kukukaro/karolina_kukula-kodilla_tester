@@ -32,6 +32,7 @@ public class WarehouseTest {
         warehouse.addOrder(new Order(warehouse.getNextNumberInThisYear(), warehouse.getYear()));
         //when
         Order order = warehouse.getOrder("3/2020");
-
+        //then
+        //exception is thrown and caught in test annotation
     }
 }
