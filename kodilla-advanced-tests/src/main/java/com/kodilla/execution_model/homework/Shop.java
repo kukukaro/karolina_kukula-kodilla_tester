@@ -17,7 +17,7 @@ public class Shop {
 
     public Set<Order> ordersBetweenDates(LocalDate dateFrom, LocalDate dateTo) {
 
-        if (dateFrom.isBefore(dateTo)) {
+        if (dateFrom.isBefore(dateTo) || dateFrom.isEqual(dateTo)) {
             return orders.stream()
                     .filter(u -> !u.getDate().isBefore(dateFrom))
                     .filter(u -> !u.getDate().isAfter(dateTo))
@@ -28,10 +28,24 @@ public class Shop {
 
     }
 
+    public Set<Order> ordersBetweenDates(LocalDate date) {
+
+            return orders.stream()
+                    .filter(u -> u.getDate().isEqual(date))
+                    .collect(Collectors.toSet());
+
+    }
+
     public Set<Order> orderBetweenValues (double lowLimit, double highLimit) {
         return orders.stream()
                 .filter(u->u.getValue()>= lowLimit)
                 .filter(u->u.getValue() <=highLimit)
+                .collect(Collectors.toSet());
+    }
+
+    public Set<Order> orderBetweenValues (double value) {
+        return orders.stream()
+                .filter(u->u.getValue() == value)
                 .collect(Collectors.toSet());
     }
 
@@ -45,7 +59,4 @@ public class Shop {
                 .sum();
     }
 
-    public void deleteAllOrders() {
-        orders.clear();
-    }
 }
