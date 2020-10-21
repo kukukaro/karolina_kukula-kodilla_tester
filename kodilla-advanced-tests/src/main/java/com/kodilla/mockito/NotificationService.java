@@ -11,7 +11,7 @@ public class NotificationService {
         this.clients.add(client);
     }
 
-    public void sendNotification(Notification notification) {
+    public void sendNotification(PhoneNotification notification) {
         clients.forEach(client -> client.receive(notification));
     }
     public void removeSubscriber(Client client) {

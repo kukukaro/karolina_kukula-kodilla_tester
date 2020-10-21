@@ -13,11 +13,6 @@ public class EmptyShopTest {
     Shop shop = new Shop();
 
     @Test
-    public void shouldReturnZeroOrdersForNewShop() {
-        assertEquals(0, shop.numberOfOrders());
-    }
-
-    @Test
     public void shouldReturnZeroForNoneOrders() {
         assertEquals(0, shop.numberOfOrders());
     }
@@ -37,7 +32,7 @@ public class EmptyShopTest {
         Set<Order> expected = Collections.emptySet();
         LocalDate dateFrom = LocalDate.of(2020, 10, 10);
         LocalDate dateTo = LocalDate.of(2020, 10, 19);
-        assertEquals(expected, shop.ordersBetweenDates(dateFrom, dateTo));
+        assertEquals(expected, shop.ordersFromDate(dateFrom, dateTo));
     }
 
 

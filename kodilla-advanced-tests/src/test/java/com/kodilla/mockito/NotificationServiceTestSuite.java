@@ -7,7 +7,7 @@ public class NotificationServiceTestSuite {
 
     NotificationService notificationService = new NotificationService();
     Client client = Mockito.mock(Client.class);
-    Notification notification = Mockito.mock(Notification.class);
+    PhoneNotification notification = Mockito.mock(PhoneNotification.class);
 
     @Test
     public void notSubscribedClientShouldNotReceiveNotification() {
@@ -53,7 +53,7 @@ public class NotificationServiceTestSuite {
     public void unsubscribedClientShouldNotReceiveNotification() {
 
         notificationService.addSubscriber(client);
-        Notification notification = Mockito.mock(Notification.class);
+        PhoneNotification notification = Mockito.mock(PhoneNotification.class);
         notificationService.removeSubscriber(client);
 
         notificationService.sendNotification(notification);

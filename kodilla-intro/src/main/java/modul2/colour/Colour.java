@@ -7,7 +7,7 @@ public class Colour {
     public String getUserSelection() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Provide first char of your favourite modul2.colour:");
+            System.out.println("Provide first char of your favourite colour:");
             String colour = scanner.nextLine().trim().toLowerCase();
             switch (colour) {
                 case "a":
