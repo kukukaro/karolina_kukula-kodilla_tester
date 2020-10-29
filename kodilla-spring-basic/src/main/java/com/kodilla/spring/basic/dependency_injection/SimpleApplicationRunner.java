@@ -1,4 +1,4 @@
-package om.kodilla.spring.basic.dependency_injection;
+package com.kodilla.spring.basic.dependency_injection;
 
 public class SimpleApplicationRunner {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package om.kodilla.spring.basic.dependency_injection.homework;
+package com.kodilla.spring.basic.dependency_injection.homework;
 
 public class WeightLimitedDeliveryService implements DeliveryService {
     @Override
