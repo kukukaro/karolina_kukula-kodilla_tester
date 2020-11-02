@@ -19,11 +19,12 @@ class CarConfigurationTest {
     }
 
     @Test
-    public void shouldHasLightsTurnedOn() {
+    public void shouldHasLightsTurnedOff() {
         Cabrio cabrio = (Cabrio) context.getBean("createCar");
         boolean isTurnedOn = cabrio.hasHeadLightsTurnedOn();
         Assertions.assertEquals(false, isTurnedOn);
     }
+
 
 
 }

@@ -1,20 +1,25 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class CarConfiguration {
 
-    private String season = "Summer";
-    private int hour = 8;
-
-    private String[] seasons = new String[]{
-            "Spring", "Summer", "Fall", "Winter"
-    };
+    @Bean
+    public String season() {
+        return "Summer";
+    }
 
     @Bean
-    public Car createCar() {
+    public Integer hour() {
+        return 8;
+    }
+
+    @Bean
+    @Autowired
+    public Car createCar(String season, Integer hour) {
         Car car;
         if (season.equals("Fall") || season.equals("Spring")) {
             car = new Sedan();

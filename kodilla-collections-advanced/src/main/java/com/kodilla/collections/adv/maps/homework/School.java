@@ -7,7 +7,7 @@ public class School {
     private List<Integer> school = new ArrayList<>();
     private String name = "";
 
-    public School(String name, int ... school) {
+    public School(String name, int... school) {
         for (Integer studentsInClass : school) {
             this.school.add(studentsInClass);
         }
