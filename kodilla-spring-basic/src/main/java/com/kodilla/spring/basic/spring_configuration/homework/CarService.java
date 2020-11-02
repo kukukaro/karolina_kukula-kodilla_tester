@@ -3,23 +3,18 @@ package com.kodilla.spring.basic.spring_configuration.homework;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 
-@Configuration
-public class CarConfiguration {
+@Service
+public class CarService {
 
-    @Bean
-    public String season() {
-        return "Summer";
-    }
-
-    @Bean
-    public Integer hour() {
-        return 8;
-    }
-
-    @Bean
     @Autowired
-    public Car createCar(String season, Integer hour) {
+    SeasonService seasonService;
+
+    public Car createCar() {
+        String season = seasonService.season();
+        Integer hour = seasonService.hour();
+
         Car car;
         if (season.equals("Fall") || season.equals("Spring")) {
             car = new Sedan();
