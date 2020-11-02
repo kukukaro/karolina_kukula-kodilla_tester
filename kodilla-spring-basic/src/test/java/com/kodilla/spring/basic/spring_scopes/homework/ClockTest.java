@@ -14,11 +14,12 @@ class ClockTest {
     @Test
     public void shouldCreateDifferentClocks() {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Clock firstBean = (Clock) context.getBean("clock", LocalDateTime.of(2020, 11, 1, 21, 32, 33));
-        Clock secondBean = (Clock) context.getBean("clock", LocalDateTime.of(2020, 11, 1, 21, 33, 33));
-        Clock thirdBean = (Clock) context.getBean("clock", LocalDateTime.of(2020, 11, 1, 21, 34, 33));
-        Assertions.assertNotEquals(firstBean, secondBean);
-        Assertions.assertNotEquals(secondBean, thirdBean);
-        Assertions.assertNotEquals(firstBean, thirdBean);
+        Clock firstBean = context.getBean(Clock.class);
+        Clock secondBean = context.getBean(Clock.class);
+
+        LocalDateTime firstTime = firstBean.getTime();
+        LocalDateTime secondTime = secondBean.getTime();
+        Assertions.assertNotEquals(firstTime, secondTime);
+
     }
 }

@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 public class Clock {
     LocalDateTime time = LocalDateTime.now();
 
-    public Clock(LocalDateTime time) {
-        System.out.println("Current time: " + time.getHour() + ":" + time.getMinute() + ":" + time.getSecond());
+
+    public LocalDateTime getTime() {
+        return time;
     }
 }
