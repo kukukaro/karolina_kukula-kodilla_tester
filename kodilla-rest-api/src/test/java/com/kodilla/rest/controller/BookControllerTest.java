@@ -8,15 +8,14 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sun.tools.doclint.Entity.times;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.times;
 
 
 class BookControllerTest {
 
     @Test
-    public void shouldFetBooks() {
+    public void shouldFetchBooks() {
         //given
         BookService bookServiceMock = Mockito.mock(BookService.class);
         BookController bookController = new BookController(bookServiceMock);

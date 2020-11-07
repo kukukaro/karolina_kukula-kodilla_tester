@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.times;
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(BookController.class)
 public class BookControllerMvcTest {
@@ -53,6 +55,11 @@ public class BookControllerMvcTest {
 
         mockMvc.perform(MockMvcRequestBuilders.post("/books").content(json).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().is(200));
+
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController = new BookController(bookServiceMock);
+        bookController.addBook(book);
+        Mockito.verify(bookServiceMock, times(1)).addBook(book);
 
     }
 }
