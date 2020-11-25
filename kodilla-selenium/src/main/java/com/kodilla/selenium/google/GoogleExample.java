@@ -14,5 +14,6 @@ public class GoogleExample {
         WebElement inputField = driver.findElement(By.name("q")); // [4]
         inputField.sendKeys("Kodilla");
         inputField.submit();
+
     }
 }
