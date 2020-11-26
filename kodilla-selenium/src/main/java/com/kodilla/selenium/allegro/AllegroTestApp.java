@@ -30,8 +30,8 @@ public class AllegroTestApp {
         WebElement searchButton = driver.findElement(By.cssSelector("button[data-role=\"search-button\"][type=\"submit\"]"));
         searchButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver,5);
-
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(webDriver -> driver.findElement(By.cssSelector("section > article")));
 
         List<WebElement> articles = driver.findElements(By.cssSelector("section > article"));
 
