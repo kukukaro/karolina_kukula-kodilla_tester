@@ -21,7 +21,10 @@ public class AllegroTestingApp {
 
         WebElement findCategory = driver.findElement(By.xpath("//select[contains(@aria-label, \"Kategoria i opcje wyszukiwania\")]"));
         Select selectCategory = new Select(findCategory);
-        selectCategory.selectByIndex(3);
+        selectCategory.selectByValue("/kategoria/elektronika");
+
+        WebElement searchButton = driver.findElement(By.xpath("//button[contains(@data-role, \"search-button\")][contains(@type, \"submit\")]"));
+        searchButton.click();
 
         driver.close();
     }
