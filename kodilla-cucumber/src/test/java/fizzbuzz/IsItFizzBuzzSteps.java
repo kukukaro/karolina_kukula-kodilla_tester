@@ -11,10 +11,8 @@ public class IsItFizzBuzzSteps implements En {
 
 
         Given("Your number is {int}", number -> {
-
             // Write code here that turns the phrase above into concrete actions
             this.number = (int) number;
-
         });
 
         When("I ask whether my number is Fizz, Buzz or FizzBuzz", () -> {
