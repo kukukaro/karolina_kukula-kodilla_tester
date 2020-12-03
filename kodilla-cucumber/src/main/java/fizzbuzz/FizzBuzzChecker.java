@@ -4,14 +4,11 @@ public class FizzBuzzChecker {
 
     public String checkIfIsFizzBuzz(int number) {
 
-        if (isFizz(number)) {
-            if (isBuzz(number)) {
-                return "FizzBuzz";
-            } else {
-                return "Fizz";
-            }
-        }
-        if (isBuzz(number)) {
+        if ((number % 3 == 0) && (number % 5 == 0)) {
+            return "FizzBuzz";
+        } else if (number % 3 == 0) {
+            return "Fizz";
+        } else if (number % 5 == 0) {
             return "Buzz";
         } else {
             return "Nope";
@@ -19,18 +16,6 @@ public class FizzBuzzChecker {
 
 
     }
-        public static boolean isFizz (int number){
-            if (number % 3 == 0)
-                return true;
 
-            return false;
-
-        }
-
-        public static boolean isBuzz (int number){
-            if (number % 5 == 0)
-                return true;
-            return false;
-        }
 
 }

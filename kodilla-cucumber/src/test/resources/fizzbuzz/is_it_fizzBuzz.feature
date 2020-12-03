@@ -7,19 +7,14 @@ Feature: Is it FizzBuzz?
     Then I should be told <answer>
     Examples:
       | number | answer|
-      | 0 | "FizzBuzz" |
+      | -30 | "FizzBuzz" |
+      | -29 | "Nope" |
+      | -9 | "Fizz" |
+      | -5 | "Buzz" |
+      | -1 | "Nope" |
       | 1 | "Nope" |
       | 2 | "Nope" |
       | 3| "Fizz" |
-      | 4 | "Nope" |
       | 5 | "Buzz" |
       | 6 | "Fizz" |
-      | 7 | "Nope" |
-      | 8 | "Nope" |
-      | 9 | "Fizz" |
-      | 10 | "Buzz" |
-      | 11 | "Nope" |
-      | 12 | "Fizz" |
-      | 13 | "Nope" |
-      | 14 | "Nope" |
       | 15 | "FizzBuzz" |
