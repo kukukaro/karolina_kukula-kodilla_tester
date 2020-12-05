@@ -8,7 +8,11 @@ public class Wallet {
     }
 
     public void deposit(int money) {
-        balance += money;
+        if (money > 0) {
+            balance += money;
+        } else {
+
+        }
     }
 
     public int getBalance() {

@@ -3,24 +3,35 @@ package wallet;
 import io.cucumber.java8.En;
 import org.junit.Assert;
 
+
 public class WalletSteps implements En {
 
     private Wallet wallet = new Wallet();
     private CashSlot cashSlot = new CashSlot();
+    private int deposit_amount;
+    private int requested_amount;
+    private int dispensed_amount;
+
 
     public WalletSteps() {
-        Given("I have deposited $200 in my wallet", () -> {
-            Wallet wallet = new Wallet();
-            wallet.deposit(200);
-            Assert.assertEquals( "Incorrect wallet balance",200, wallet.getBalance());
+
+        Given("Your deposit is {int}", (Integer deposit_amount) -> {
+            this.deposit_amount = deposit_amount;
+            if (deposit_amount > 0) {
+                wallet.deposit(deposit_amount);
+                Assert.assertEquals(this.deposit_amount, wallet.getBalance());
+            }
         });
 
-        When("I request $30", () -> {
+        When("I request {int}", (Integer requested_amount) -> {
             Cashier cashier = new Cashier(cashSlot);
-            cashier.withdraw(wallet, 30);
+            this.requested_amount = requested_amount;
+            cashier.withdraw(wallet, this.requested_amount);
         });
-        Then("$30 should be dispensed", () -> {
-            Assert.assertEquals(30, cashSlot.getContents());
+
+        Then("{int} should be dispensed", (Integer dispensed_amount) -> {
+            this.dispensed_amount = dispensed_amount;
+            Assert.assertEquals(this.dispensed_amount, cashSlot.getContents());
         });
     }
 }

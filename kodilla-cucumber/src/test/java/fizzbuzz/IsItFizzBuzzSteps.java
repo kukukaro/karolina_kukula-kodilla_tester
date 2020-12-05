@@ -10,9 +10,8 @@ public class IsItFizzBuzzSteps implements En {
     public IsItFizzBuzzSteps() {
 
 
-        Given("Your number is {int}", number -> {
-            // Write code here that turns the phrase above into concrete actions
-            this.number = (int) number;
+        Given("Your number is {int}", (Integer number) -> {
+            this.number = number;
         });
 
         When("I ask whether my number is Fizz, Buzz or FizzBuzz", () -> {
@@ -21,7 +20,6 @@ public class IsItFizzBuzzSteps implements En {
         });
 
         Then("I should be told {string}", (String string) -> {
-            // Write code here that turns the phrase above into concrete actions
             Assert.assertEquals(string, this.answer);
         });
     }
