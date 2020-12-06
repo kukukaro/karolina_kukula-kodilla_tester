@@ -11,6 +11,7 @@ public class WalletSteps implements En {
     private int deposit_amount;
     private int requested_amount;
     private int dispensed_amount;
+    private int final_amount;
 
 
     public WalletSteps() {
@@ -32,6 +33,11 @@ public class WalletSteps implements En {
         Then("{int} should be dispensed", (Integer dispensed_amount) -> {
             this.dispensed_amount = dispensed_amount;
             Assert.assertEquals(this.dispensed_amount, cashSlot.getContents());
+        });
+
+        Then("The balance of my wallet should be {int}", (Integer final_amount) -> {
+            this.final_amount = final_amount;
+            Assert.assertEquals(this.final_amount, wallet.getBalance());
         });
     }
 }
