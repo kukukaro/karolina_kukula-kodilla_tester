@@ -19,6 +19,7 @@ public class NotAllowNegativeDeposit implements En {
         When("I try to deposit -1\\$", () -> {
             try {
                 wallet.deposit(-1);
+
             } catch (Exception ex) {
                 this.errorResponse = ex;
             }
