@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'checkstyle'
+    id "com.github.spotbugs" version "3.0.0"
 }
 
 group 'com.kodilla'
@@ -18,4 +19,35 @@ dependencies {
 checkstyle {
     toolVersion "8.30"
     configFile = file("checkstyle.xml")
+}
+
+spotbugs {
+    toolVersion = '3.1.12'
+    ignoreFailures = true
+}
+
+spotbugsMain {
+    reports.html.enabled = true
+    reports.xml.enabled = false
+}
+
+spotbugsTest {
+    reports.html.enabled = true
+    reports.xml.enabled = false
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            element = 'METHOD'
+            limit {
+                counter = 'BRANCH'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+            includes = [
+                    'com.kodilla.jacoco.*'
+            ]
+        }
+    }
 }
