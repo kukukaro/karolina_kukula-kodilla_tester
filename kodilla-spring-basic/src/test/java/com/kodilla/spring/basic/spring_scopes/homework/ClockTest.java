@@ -17,9 +17,7 @@ class ClockTest {
         Clock firstBean = context.getBean(Clock.class);
         Clock secondBean = context.getBean(Clock.class);
 
-        LocalDateTime firstTime = firstBean.getTime();
-        LocalDateTime secondTime = secondBean.getTime();
-        Assertions.assertNotEquals(firstTime, secondTime);
+        Assertions.assertNotSame(firstBean, secondBean);
 
     }
 }
