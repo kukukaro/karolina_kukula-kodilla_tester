@@ -3,6 +3,7 @@ package com.kodilla.hibernate.tasklist.repository;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,11 +19,13 @@ public class TaskListRepositoryTestSuite {
 
     private static final String DESCRIPTION = "Testing Description";
 
+    private TaskList removeAfterTest;
+
     @Test
     public void testTaskRepositoryFindByListName() {
         //Given
         TaskList taskList = new TaskList("First list", DESCRIPTION);
-        taskListRepository.save(taskList);
+        removeAfterTest = taskListRepository.save(taskList);
         String listName = taskList.getListName();
 
         //When
@@ -30,9 +33,12 @@ public class TaskListRepositoryTestSuite {
 
         //Then
         Assert.assertEquals(1, readTaskList.size());
+    }
 
-        //CleanUp
-        int id = readTaskList.get(0).getId();
-        taskListRepository.deleteById(id);
+    @AfterEach
+    public void cleanUp() {
+        if(removeAfterTest != null) {
+            taskListRepository.deleteById(removeAfterTest.getId());
+        }
     }
 }
