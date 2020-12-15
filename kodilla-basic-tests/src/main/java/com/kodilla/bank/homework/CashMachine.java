@@ -15,7 +15,6 @@ public class CashMachine {
     }
 
 
-
     private void newTransaction(int amount) {
         this.numberOfTransactions++;
         int[] newTab = new int[this.numberOfTransactions];
@@ -24,8 +23,8 @@ public class CashMachine {
         this.transactions = newTab;
     }
 
-    public void newWithdraw(int amount){
-        if (amount > 0){
+    public void newWithdraw(int amount) {
+        if (amount > 0) {
             newTransaction(-amount);
         } else {
             System.out.println("The amount should be positive value.");
@@ -33,7 +32,7 @@ public class CashMachine {
     }
 
     public void newDeposit(int amount) {
-        if (amount > 0){
+        if (amount > 0) {
             newTransaction(amount);
         } else {
             System.out.println("The amount should be positive value.");
@@ -45,7 +44,7 @@ public class CashMachine {
             return 0;
         }
         int sum = 0;
-        for (int transaction : transactions)  {
+        for (int transaction : transactions) {
             sum += transaction;
         }
         return sum;
@@ -56,18 +55,18 @@ public class CashMachine {
     }
 
     public int getNumberOfWithdraws() {
-        if (transactions.length == 0){
+        if (transactions.length == 0) {
             return 0;
         }
         int counter = 0;
         for (int transaction : transactions) {
             if (transaction < 0) counter++;
         }
-            return counter;
+        return counter;
     }
 
     public int getNumberOfDeposits() {
-        if (transactions.length == 0){
+        if (transactions.length == 0) {
             return 0;
         }
         int counter = 0;
@@ -78,27 +77,29 @@ public class CashMachine {
     }
 
     public int getSumOfWithdraws() {
-        if (transactions.length == 0){
+        if (transactions.length == 0) {
             return 0;
         }
         int sum = 0;
         for (int transaction : transactions) {
             if (transaction < 0) {
                 sum += transaction;
-            };
+            }
+            ;
         }
         return sum;
     }
 
     public int getSumOfDeposits() {
-        if (transactions.length == 0){
+        if (transactions.length == 0) {
             return 0;
         }
         int sum = 0;
         for (int transaction : transactions) {
             if (transaction > 0) {
                 sum += transaction;
-            };
+            }
+            ;
         }
         return sum;
     }
