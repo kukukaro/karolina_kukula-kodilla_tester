@@ -1,5 +1,4 @@
-package com.kodilla.testcontainers;
-
+package com.kodilla.testcontainers.homework;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -15,12 +14,12 @@ import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 import static org.testcontainers.containers.BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL;
 
-public class ApplicationTest {
-
+public class CardTest {
     @Rule
     public Network network = Network.newNetwork();
 
@@ -28,21 +27,18 @@ public class ApplicationTest {
     public GenericContainer webServer =
             new GenericContainer(
                     new ImageFromDockerfile()
-                            .withFileFromClasspath("/tmp/index.html", "index.html")
-                            .withDockerfileFromBuilder(builder ->
-                                    builder
-                                            .from("httpd:2.4")
-                                            .copy("/tmp/index.html", "/usr/local/apache2/htdocs")
-                                            .build()))
-                    .withNetwork(network)
-                    .withNetworkAliases("my-server")
-                    .withExposedPorts(80);
+                            .withFileFromFile("/tmp/index.html", new File("c:\\Kodilla_additional\\Docker\\index.html"))
+                            .withDockerfile(Paths.get("c:\\Kodilla_additional\\Docker\\Dockerfile"))
+            )
+            .withNetwork(network)
+            .withNetworkAliases("my-server")
+            .withExposedPorts(80);
 
     @Rule
     public BrowserWebDriverContainer chrome =
             new BrowserWebDriverContainer<>()
                     .withNetwork(network)
-                    .withRecordingMode(RECORD_ALL, new File("./build/"))
+                    .withRecordingMode(RECORD_ALL, new File("./build/video/"))
                     .withRecordingFileFactory(new DefaultRecordingFileFactory())
                     .withCapabilities(new ChromeOptions());
 
@@ -54,7 +50,7 @@ public class ApplicationTest {
         File screenshot = driver.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(screenshot, new File("./build/screenshots/" + screenshot.getName()));
 
-        String title = driver.findElement(By.id("title")).getText();
-        assertEquals("My dockerized web page.", title);
+        String title = driver.findElement(By.tagName("h1")).getText();
+        assertEquals("Kodilla kurs - Karolina", title);
     }
 }
